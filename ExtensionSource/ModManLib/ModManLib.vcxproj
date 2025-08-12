@@ -27,6 +27,7 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <TargetFramework>net8.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <ModManDir>$(SolutionDir)..\ModManager\</ModManDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -75,9 +76,6 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)..\ModManager\extensions\exModManager</OutDir>
-  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -116,7 +114,10 @@
       <AdditionalDependencies />
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetDir)$(ProjectName).runtimeconfig.json" "$(SolutionDir)..\ModManager\datafiles"</Command>
+      <Command>move "$(TargetDir)$(TargetFileName)" "$(ModManDir)extensions\exModManager"
+move "$(TargetDir)*.dll" "$(ModManDir)datafiles"
+move "$(TargetDir)runtimes\win-x64\native\Magick.Native-Q8-x64.dll" "$(ModManDir)datafiles"
+move "$(TargetDir)$(ProjectName).runtimeconfig.json" "$(ModManDir)datafiles"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

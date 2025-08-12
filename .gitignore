@@ -1,8 +1,7 @@
 ## Ignore extension files to be built
 
-ModManager/extensions/exModManager/*
-!ModManager/extensions/exModManager/exModManager.yy
-!ModManager/extensions/exModManager/ModManInterface.gml
+ModManager/datafiles/*
+ModManager/extensions/exModManager/ModManLib.dll
 
 
 
