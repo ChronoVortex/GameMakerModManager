@@ -15,7 +15,7 @@ Place UndertaleModTool's `Underanalyzer.dll` and `UndertaleModLib.dll` files in 
 
 ## Testing
 
-Export the `ModManager` project in GameMaker and rename the game's `data.win` file to `modman.win`. Then, export the `ModReceiver` project and place its `data.win` file in the same folder as the `ModManager` game. You can create a project using UTMT for `ModReceiver`'s `data.win` and place it in `%localappdata%/mods/TestMod` to check if the game is able to successfully install it as a mod.
+Make sure GameMaker is set to export in VM. Export the `ModManager` project and rename the game's `data.win` file to `modman.win`. Then, export the `ModReceiver` project and place its `data.win` file in the same folder as the `ModManager` game. Place the `mods` folder in `%localappdata%/ModManager`, then run the game. After you've pressed "Enter" enough times to step through the full mod installation process, the game should display "Inside successfully modded game!"
 
 
 ## License
